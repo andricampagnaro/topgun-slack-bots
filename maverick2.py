@@ -65,14 +65,16 @@ main_text = {
 }
 
 @app.event("app_mention")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-def mention_handler(say, ack):
+def mention_handler(say, body, ack):
     ack()
+    print(body)
     text = main_text
     say(text=text)
 
 @app.action("maverick_button_add_sugestion")
 def handle_some_action(ack, body, logger, say):
     ack()
+    print(body)
     state_values = body['state']['values']
     for id in state_values:
         for field in state_values[id]:
